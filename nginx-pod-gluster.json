@@ -1,0 +1,33 @@
+{
+  "kind": "Pod",
+  "apiVersion": "v1beta3",
+  "metadata": {
+    "name": "nginx-pod",
+    "labels": {
+      "name": "mypod",
+      "file": "glusterfs"
+    }
+  },
+  "spec":{
+            "containers": [{
+             "name": "nginx-local",
+             "image": "fedora/nginx",
+             "volumeMounts": [
+              {
+               "mountPath": "/usr/share/nginx/html/test",
+               "name": "glusterfsvol"
+              }
+             ]
+           }],
+           "volumes": [
+             {
+             "name": "glusterfsvol",
+                "glusterfs": {
+                  "endpoints": "glusterfs-container",
+                  "path": "test_vol",
+                  "readOnly": true
+                }
+             }
+            ]
+         }
+}

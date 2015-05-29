@@ -1,0 +1,11 @@
+{
+    "apiVersion": "v1beta1",
+    "id": "glusterfs-container",
+    "kind": "Endpoints",
+    "metadata": {
+        "name": "glusterfs-container"
+    },
+    "Endpoints": [
+       "18.0.92.5:10"
+    ]
+}
